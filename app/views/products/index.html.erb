@@ -18,6 +18,11 @@
           </td>
         <% end %>
       </tr>
+    <% end unless @products.empty? %>
+    <% if @products.empty? %>
+      <tr>
+        <td colspan="<%= table_headers.length %>" class="text-center"> No Records Found. </td>
+      </tr>
     <% end %>
   </tbody>
 </table>
