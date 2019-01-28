@@ -1,2 +1,24 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<h1>Product List</h1>
+<table class="table-striped table table-bordered table-hover table-responsive">
+  <thead>
+    <tr>
+      <% table_headers.each do |header|  %>
+        <td>
+          <%= header.humanize %>
+        </td>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <% table_headers.each do |col_name| %>
+          <td>
+            <%= product.send(col_name) %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= render partial: 'import_form' %>
